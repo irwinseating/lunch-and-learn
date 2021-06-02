@@ -6,6 +6,15 @@ Compilation of lunch and learn examples
 
 
 
+Best Practices
+Naming Conventions and consistancy (Variable caising for constant, local, and global variables)
+Code Reuse and why it's important
+Namespacing/ordering for better maintainability (Easy to find)
+Variable Lifecycles
+
+
+
+
 
 
 
@@ -14,6 +23,6 @@ Compilation of lunch and learn examples
 * Functional Programming
 * Fetching data
 * Error Handling
-* naming conventions
+* naming conventions and why it's important
 * variable scope 
 * Design Patterns
