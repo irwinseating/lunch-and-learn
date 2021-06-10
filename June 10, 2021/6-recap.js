@@ -1,7 +1,5 @@
 
-/***************************
- *  Example 1
- */
+/* #region Example 1 */
 // Remember that code we had in 2-pseudocode.js? 
 function emailClients(listOfClients) {
     listOfClients.forEach(client => {
@@ -38,12 +36,12 @@ function emailActiveClients(listOfClients) {
     let activeClients = listOfClients.filter(client => isActiveClient(client));
     activeClients.forEach(activeClient => email(activeClient));
 }
+/* #endregion */
 
 
 
-/***************************
- *  Example 1
- */
+
+/* #region Example 2 */
 // How about the example from if_else_switch.js - can we make that better?
 
 // set parts
@@ -111,7 +109,7 @@ computerParts.foreach(part => {
 //computerParts.foreach(p => getPrice(p));
 // or
 //computerParts.foreach(p => getPrice(p));
-
+/* #endregion */
 
 
 

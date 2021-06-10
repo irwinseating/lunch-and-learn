@@ -29,6 +29,19 @@ if (num === 1) {
     // it's a different number
 }
 
+// these items can _nested_ for more options
+if (num > 0) {
+    if (num === 1) {
+
+    }
+} else { // is <= 0
+    if (num === -1) {
+
+    }
+}
+
+
+
 
 // switch statement
 // switch statements can be a good alternative to an if statement
@@ -55,6 +68,7 @@ switch (value) {
         // it's a different number
         break;
 }
+
 
 
 
