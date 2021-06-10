@@ -58,8 +58,10 @@ switch (value) {
 
 
 
-
-
+/************
+ *  Example
+ */
+// get parts
 var computerParts = ['cpu', 'motherboard', 'mouse', 'keyboard', 'gpu'];
 
 // declare variables
@@ -74,15 +76,14 @@ var gpuPrice;
 // setting price with if/else
 computerParts.foreach(part => {
     if (part === 'cpu') {
-
+        cpuPrice = 100;
     } else if (part === 'motherboard') {
-
+        motherboardPrice = 100;
     } else if (part === 'mouse') {
-
+        mousePrice = 100;
     } else if (part === 'keyboard') {
-
+        keyboardPrice = 100;
     }
-
 });
 
 

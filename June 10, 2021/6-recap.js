@@ -1,3 +1,7 @@
+
+/***************************
+ *  Example 1
+ */
 // Remember that code we had in 2-pseudocode.js? 
 function emailClients(listOfClients) {
     listOfClients.forEach(client => {
@@ -36,7 +40,11 @@ function emailActiveClients(listOfClients) {
 }
 
 
-// How about the example from switch.js - can we make that better?
+
+/***************************
+ *  Example 1
+ */
+// How about the example from if_else_switch.js - can we make that better?
 
 // set parts
 var computerParts = ['cpu', 'motherboard', 'mouse', 'keyboard', 'gpu'];
@@ -69,9 +77,10 @@ computerParts.foreach(part => {
     }
 });
 
+// loop each part
+//      get price from function
 
-
-// find matching price
+// get price
 function getPrice(partName) {
     switch (partName) {
         case 'cpu':
@@ -90,4 +99,20 @@ function getPrice(partName) {
             break;
     }
 }
+
+
+// loop part, get price
+computerParts.foreach(part => {
+    getPrice(part)
+});
+// can actually be written in one line
+//computerParts.foreach(getPrice);
+// or
+//computerParts.foreach(p => getPrice(p));
+// or
+//computerParts.foreach(p => getPrice(p));
+
+
+
+
 
