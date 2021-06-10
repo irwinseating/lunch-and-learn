@@ -12,6 +12,27 @@ if (1 === 0) {
     // won't do anything
 }
 
+var isAnActiveEmailClient = function () {
+    if (timeOfDay = afternoon) {
+        return true;
+    }
+
+    else false;
+}
+
+
+
+if (isAnActiveEmailClient()) {
+    console.log('hey, we are active');
+    console.log('this other thing');
+} else if (time < noon) {
+    console.log('try again later today');
+} else
+    console.log('try again tomorrow afternoon');
+}
+
+
+
 // else can be added to branch results.
 if (true) {
     // do one thing
@@ -56,13 +77,17 @@ switch (value) {
         break;
 }
 
-var num = 1;
+var color = 'red';
 switch (value) {
-    case 1:
-        // do something with 1
+    case 'red':
+    case 'blue':
+    case 'green':
+        doTheSameThing()
         break;
-    case 2:
-        // do something with 2
+    case 'purple':
+        break;
+    case 'orange':
+        doSomethingDifferent();
         break;
     default:
         // it's a different number
@@ -96,6 +121,9 @@ computerParts.foreach(part => {
     } else if (part === 'mouse') {
         mousePrice = 100;
     } else if (part === 'keyboard') {
+        keyboardPrice = 100;
+
+    } else if (part === 'keys') {
         keyboardPrice = 100;
     }
 });

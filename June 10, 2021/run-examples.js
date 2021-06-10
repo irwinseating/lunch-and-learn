@@ -12,7 +12,7 @@ class Client {
     }
     constructor(name, isActive) {
         this.name = name;
-        this.isActive = isActive;
+        this._isActive = isActive;
     }
 }
 
@@ -28,4 +28,20 @@ var clientArray = [
 
 var email = function (client) {
     console.log(`Sending email to ${client.name}`)
+}
+
+clientArray.forEach(client => {
+    if (client.isActive()) {
+
+        email(client);
+    }
+})
+
+function emailClients(listOfClients) {
+    listOfClients.forEach(client => {
+        const clientRecord = database.lookup(client);
+        if (clientRecord.isActive()) {
+            email(clientRecord);
+        }
+    });
 }

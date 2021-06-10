@@ -1,7 +1,7 @@
 // pseudocode is a way to describe code in a more readable fashion. It's often good when you're initially thinking through a problem or trying to descibe how to do somethign to someone non-technical.
 
 
-// We need a a function that emails a client.
+// We need a a function that emails an active client.
 
 //  clients -> list of clients
 //  loop clients

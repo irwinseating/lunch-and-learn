@@ -29,7 +29,7 @@ var exampleFunction = function () {
 /// </summary>
 /// <param name="rev"></param>
 /// <returns></returns>
-var anotherExample = function () {
+var anotherExample = function (rev) {
 
 }
 

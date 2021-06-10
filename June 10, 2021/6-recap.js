@@ -78,7 +78,8 @@ computerParts.foreach(part => {
 // loop each part
 //      get price from function
 
-// get price
+// input part name
+// returns price part
 function getPrice(partName) {
     switch (partName) {
         case 'cpu':
@@ -104,7 +105,7 @@ computerParts.foreach(part => {
     getPrice(part)
 });
 // can actually be written in one line
-//computerParts.foreach(getPrice);
+computerParts.foreach(getPrice);
 // or
 //computerParts.foreach(p => getPrice(p));
 // or
