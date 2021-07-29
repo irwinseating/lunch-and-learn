@@ -1,0 +1,14 @@
+{
+  "name": "pepper-api",
+  "version": "1.0.0",
+  "description": "Lunch and Learn topic going over api's and peppers",
+  "main": "index.js",
+  "scripts": {
+    "live": "live-server"
+  },
+  "author": "Kevin Kayser (https://github.com/Kevin-Kayser)",
+  "license": "ISC",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  }
+}
