@@ -1,5 +1,7 @@
 # API Basics
 
+Today we found a list of peppers online. We stored the data locally in json format. This is considered our api endpoint as we’re pulling data from it. If we use external data over the wire, we would replace this with an absolute url, but the data format would be similar.
+
 Must have:
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [NodeJs (for `npm`)](https://nodejs.org/en/download/)
