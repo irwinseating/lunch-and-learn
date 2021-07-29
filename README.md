@@ -4,6 +4,7 @@ Compilation of lunch and learn examples
 ## Sessions
 * [June 2, 2021 - Getting Started](https://github.com/irwinseating/lunch-and-learn/tree/main/June%202%202021)
 * [June 10, 2021](https://github.com/irwinseating/lunch-and-learn/tree/main/June%2010%202021)
+* [July 29, 2021](https://github.com/irwinseating/lunch-and-learn/tree/main/July%2029,%202021)
 
 
 Best Practices
