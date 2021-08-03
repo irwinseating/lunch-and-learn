@@ -2,68 +2,34 @@ function setJson(data) {
     document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
 }
 
-function getPepperMetaData(data) {
-    return data.map(function (m) {
-
-        // returns the max and min heat of the data
-        var determineMinJrS = (p) => p.min_jrp > 0 ? p.min_jrp : p.min_shu;
-        var determineMaxJrS = (p) => p.max_jrp > 0 ? p.max_jrp : p.max_shu;
-        return { "name": m.name, "heat": m.heat, minHeat: determineMinJrS(m) ?? "?", maxHeat: determineMaxJrS(m) ?? "?" };
+function getMushroomMetaData(data) {
+    let mushroomData = data.map(function (m) {     
+        return {"name": m.consensus_name, "locationName" : m.location_name, "imageNumber" : m.primary_image_id, "imageURL" : getMushroomImage(m)};
     });
-}
+    return mushroomData.sort((a,b) => {  a.name < b.name ? -1 : 1});
 
-function displayHeatRange(pepper) {
-    const { minHeat, maxHeat } = pepper;
-    return `(${minHeat}-${maxHeat})`;
-}
-
-// This isn't complete, but it sure does get a distinct set of heat types
-function createLegend(pepperData) {
-    const distinctHeats = pepperData.map(m => m.heat).filter((value, index, self) => self.indexOf(value) === index);
-    return distinctHeats.map(m => { return { "name": m, "symbol": displayHeatSymbol({ "heat": m }) } });
-}
-
-// returns a friendly display of the heat instead of just text.
-function displayHeatSymbol(pepper) {
-    const { heat } = pepper; // variable descructuring
-    /*
-    The same thing as the following:
-    var heat = pepper.heat;
-    or 
-    var heat = pepper["heat"]; 
-
-    */
-
-    switch (heat) {
-        case null:
-            return "";
-        case "mild":
-            return '🆒';
-        case "hot":
-            return '🥵';
-        case "medium":
-            return '🔉';
-        case "nuclear":
-            return '☠';
-
-        default: return heat;
-    }
 
 }
 
-// createds joins the list of items and throws them into pepperWrapper element
+function getMushroomImage(data) {
+    let {primary_image_id}=data
+    let urlImage = `https://mushroomobserver.nyc3.digitaloceanspaces.com/orig/${primary_image_id}.jpg`;
+    return urlImage;
+}
+
+
 function putDataOnPage(data) {
-    const wrapper = document.getElementById("pepperFields");
+    const wrapper = document.getElementById("mushroomFields");
 
-    let pepperListItems = data.map(m => `<div class="card"><div class="flex flex-row justify-between m-5"><div>${m.name} ${displayHeatRange(m)}</div><div> ${displayHeatSymbol(m)}</div></div></div>`).join('');
-    wrapper.innerHTML = `<div class="grid grid-cols-2 gap-5 pepper-wrapper">${pepperListItems}</div>`;
+    let mushroomListItems = data.map(m => `<div class="card"><div class="flex flex-row justify-between m-5"><div>${m.name} </div> <div> ${m.locationName} </div>,</div>,<a target="_blank" href="${m.imageURL}"><img class="max-size-only" loading"=lazy" src="${m.imageURL}" /></a></div>`).join('');
+    wrapper.innerHTML = `<div class="grid grid-cols-2 gap-5 mushroom-wrapper">${mushroomListItems}</div>`;
 }
 
 (function () {
-    let url = "./data/peppers.json";
+    let url = "http://mushroomobserver.org/api2/observations?region=Michigan,+USA&has_images=true&date=2020&detail=low&format=json";
 
     fetch(url)
         .then(r => r.json())
-        .then(r => getPepperMetaData(r.peppers))
-        .then(r => { putDataOnPage(r); setJson(r); createLegend(r); });
+        .then(r => getMushroomMetaData(r.results))
+        .then(r => { putDataOnPage(r); setJson(r)});
 })();
