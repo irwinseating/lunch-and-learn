@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>The Pepper Show</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
+
+</head>
+
+<body>
+    <div id='main' class="flex flex-row">
+        <div id="pepperFields" class="w-full h-full overflow-scroll">
+            <div id="pepperList" class="grid grid-cols-2 gap-5 pepper-wrapper"></div>
+        </div>
+        <div id="json" class="w-full h-full"></div>
+    </div>
+
+    <template id="pepperTemplate">
+        <div class="card">
+            <div class="flex flex-row justify-between m-5">
+                <div class="nameAndRange"></div>
+                <div class="heatSymbol"></div>
+            </div>
+        </div>
+    </template>
+    <script src='./js/main.js'></script>
+</body>
+
+</style>
+
+</html>
