@@ -4,9 +4,11 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 
 namespace PepperApi.Controllers
 {
+    [EnableCors("CorsPolicy")]
     [ApiController]
     [Route("[controller]")]
     public class PepperController : ControllerBase
@@ -20,14 +22,32 @@ namespace PepperApi.Controllers
 
         [HttpGet]
         [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 3600)]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(int page = 1, int pageSize = 20)
         {
             using (StreamReader r = new StreamReader("data/peppers.json"))
             {
                 var json = r.ReadToEnd();
                 var pepperResponse = JsonConvert.DeserializeObject<PepperResponse>(json);
-                return Ok(pepperResponse.Peppers.Take(100));
+                return Ok(pepperResponse.Peppers.Skip((page - 1) * pageSize).Take(pageSize));
             }
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            return Ok(true);
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> Update(Pepper pepper)
+        {
+            return Ok(pepper);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(Pepper pepper)
+        {
+            return Ok(pepper);
         }
     }
 }
