@@ -21,16 +21,26 @@ namespace PepperApi.Controllers
         }
 
         [HttpGet]
-        [ResponseCache(Location = ResponseCacheLocation.Any, Duration = 3600)]
+        //[ResponseCache(Location = ResponseCacheLocation.Any, Duration = 3600)]
         public async Task<IActionResult> Get(int page = 1, int pageSize = 20)
         {
             using (StreamReader r = new StreamReader("data/peppers.json"))
             {
                 var json = r.ReadToEnd();
                 var pepperResponse = JsonConvert.DeserializeObject<PepperResponse>(json);
-                return Ok(pepperResponse.Peppers.Skip((page - 1) * pageSize).Take(pageSize));
+
+                var totalResults = pepperResponse.Peppers.Count();
+                var totalPages = pepperResponse.Peppers.Count() / pageSize;
+                var currentPage = pepperResponse.Peppers.Skip((page - 1) * pageSize).Take(pageSize);
+                return Ok(new
+                {
+                    totalResults,
+                    totalPages,
+                    items = currentPage
+                });
             }
         }
+
 
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
