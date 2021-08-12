@@ -14,9 +14,11 @@
 </head>
 
 <body>
+
     <input id="page" name="page" type="number" id="num" min="0" max="100" step="1" style="width: 100px;" value="1">
     <input id="pageSize" name="pageSize" type="number" id="num" min="0" max="100" step="1" style="width: 100px;" value="20">
-    <button onclick="getData()">Go</button>
+
+    <button form="pagingForm" onclick="getData()">Go</button>
     <div id='main' class="flex flex-row">
         <div id="pepperFields" class="w-full h-full overflow-scroll">
             <div id="pepperList" class="grid grid-cols-2 gap-5 pepper-wrapper"></div>

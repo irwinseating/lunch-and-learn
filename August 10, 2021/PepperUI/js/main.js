@@ -1,9 +1,17 @@
 let apiBaseUrl = `https://localhost:44364`;
+let maxPageSize = 200;
+let maxPage = 20;
 
 function getData() {
 
+
     const page = getPage();
     const pageSize = getPageSize();
+
+    if (page > maxPage) {
+        alert('Calm down! We\'ve only got ' + maxPage + ' pages of data!');
+        return;
+    }
 
     const url = `${apiBaseUrl}/pepper?page=${page}&pageSize=${pageSize}`;
     const data = fetch(url, {
@@ -12,7 +20,15 @@ function getData() {
             "Content-Type": "application/json",
         },
     }).then(r => r.json())
-        .then(r => getPepperMetaData(r))
+        .then(r => {
+            maxPage = r.totalPages;
+            maxPageSize = r.totalResults;
+
+
+            return r;
+        })
+
+        .then(r => getPepperMetaData(r.items))
         .then(r => sortPeppers(r))
         .then(r => { clearDataOnPage(); putDataOnPage(r); setJson(r); createLegend(r); });
 
@@ -123,4 +139,10 @@ function putDataOnPage(data) {
 
 (function () {
     getData();
+
+    // setup a listener for the page number and page size
+    document.getElementById("page").addEventListener("change", getData);
+
+
+    document.getElementById("pageSize").addEventListener("change", getData);
 })();
