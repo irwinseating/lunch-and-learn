@@ -1,14 +1,17 @@
-function setJson(data) {
+/*function setJson(data) {
     document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
-}
+}*/
 
 function getMushroomMetaData(data) {
+            console.log(data)
     let mushroomData = data.map(function (m) {     
-        return {"name": m.consensus_name, "locationName" : m.location_name, "imageNumber" : m.primary_image_id, "imageURL" : getMushroomImage(m)};
-    });
-    return mushroomData.sort((a,b) => {  a.name < b.name ? -1 : 1});
-
-
+        return {"name": m.consensus_name, "locationName" : m.location_name, "imageNumber" : m.primary_image_id, "imageURL" : getMushroomImage(m), "locationExists" :m.is_collection_location, "latitude" : m.latitude, "longitude" : m.longitude};    });
+            console.log(mushroomData)  
+       
+        mushroomData.filter(hasValidLocation).forEach(element => {
+            hasLocation(element) 
+        });      
+            return mushroomData.sort((a,b) => {  a.name < b.name ? -1 : 1})
 }
 
 function getMushroomImage(data) {
@@ -31,5 +34,6 @@ function putDataOnPage(data) {
     fetch(url)
         .then(r => r.json())
         .then(r => getMushroomMetaData(r.results))
-        .then(r => { putDataOnPage(r); setJson(r)});
+        .then(r => { putDataOnPage(r);});
 })();
+/* setJson(r)  pulled from third .then*/
