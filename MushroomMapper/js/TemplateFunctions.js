@@ -4,23 +4,18 @@ function getTemplateItemElement(item) {
 
 export function createNewTemplate(containerId, data) {
     var template = getTemplateItemElement("templateItem");
+
     const templateClone = template.content.cloneNode(true);
 
-    templateClone.querySelector(".mushroomName").forEach(
-        (i) => {(i.textContent = data.name);debugger;}
-    );
-    
-    [...templateClone.querySelectorAll(".locationName")].forEach(
-        (i) => (i.innerHTML = data.locationName)
-    );
-/*    [...templateClone.querySelectorAll(".imageURL")].forEach(
-        (i) => (i.innerHTML = data.name)
-    );
-*/
+
+    templateClone.querySelector(".mushroomName").innerHTML = data.name;
+    templateClone.querySelector(".locationName").innerHTML = data.locationName
+    templateClone.querySelector("a").href = data.imageURL;
+    templateClone.querySelector("a img").src = data.imageURL;
+
+
     const container = document.getElementById(containerId);
+    container.appendChild(templateClone);
 
 
-var clone = template.content.cloneNode(true);
-
-container.appendChild(clone);
 }
