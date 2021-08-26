@@ -7,8 +7,12 @@ Utility classes for basic functionality.
 */
 
 .max-size-only {
-    max-width: 100px;
-    width: 100px;
+    max-width: 300px;
+    width: 500px;
+}
+.max-map-size-only {
+    max-width: 450px;
+    width: 450px;
 }
 .card {
     border-radius: 5px;
