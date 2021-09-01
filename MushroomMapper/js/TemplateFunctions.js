@@ -12,6 +12,8 @@ export function createNewTemplate(containerId, data) {
     templateClone.querySelector(".locationName").innerHTML = data.locationName
     templateClone.querySelector("a").href = data.imageURL;
     templateClone.querySelector("a img").src = data.imageURL;
+    templateClone.querySelector("img.mushroom-map").src = data.mapURL;
+
 
 
     const container = document.getElementById(containerId);

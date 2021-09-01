@@ -8,7 +8,9 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
     <link rel='stylesheet' type='text/css' media='screen' href='./css/main.css'>
 
 </head>
@@ -16,18 +18,22 @@
 <body>
     <template id="templateItem">
         <div class="card">
-            <div class="flex flex-row justify-between m-5">
-                <div class="mushroomName"></div>
-                <a target="_blank">
-                    <img class="max-size-only" loading="lazy" />
-                </a>
-                <div class="locationName"></div>
-                <!-- <img class="max-map-size-only" loading="lazy" src="${m.mapURL}" /> -->
+            <div class="flex flex-row m-5 gap-2">
+                <div>
+                    <div class="mushroomName"></div>
+                    <a target="_blank">
+                        <img class="max-size-only" loading="lazy" />
+                    </a>
+                </div>
+                <div>
+                        <div class="locationName"></div>
+                        <img class="mushroom-map max-map-size-only" loading="lazy" src="${m.mapURL}" />
+                </div>
             </div>
         </div>
     </template>
     <div id='main' class="flex flex-row">
-        <div id="mushroomFields" class="w-full h-full overflow-scroll"></div>
+        <div id="mushroomFields" class="grid grid-cols-2 gap-2"></div>
         <!-- <div id="json" class="w-full h-full"></div> -->
     </div>
     <script type="module" src='./js/main.js'></script>

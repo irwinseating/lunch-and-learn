@@ -29,8 +29,13 @@ Utility classes for basic functionality.
     display: grid;
 }
 
-.gap-5 {
+.gap-1 {
     gap: 5px;
+}
+
+
+.gap-2 {
+    gap: 10px;
 }
 
 .h-full {
