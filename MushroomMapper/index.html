@@ -6,6 +6,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>The Mushroom Show</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://mushroomobserver.nyc3.digitaloceanspaces.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -26,13 +27,25 @@
                     </a>
                 </div>
                 <div>
-                        <div class="locationName"></div>
-                        <img class="mushroom-map max-map-size-only" loading="lazy" src="${m.mapURL}" />
+                    <div class="locationName"></div>
+                    <img class="mushroom-map max-map-size-only" loading="lazy" src="${m.mapURL}" />
                 </div>
             </div>
         </div>
     </template>
-    <div id='main' class="flex flex-row">
+
+
+    <div id='main' class="flex flex-col">
+        <div class="margin-x-auto"> <select id="mushroomOptions">
+            </select>
+            <input id="filterResults" type="button" value="Filter" />
+            <input id="clearFilter" type="button" value="Clear Filter" />
+        </div>
+        <div class="margin-x-auto"> <select id="yearOptions">
+            </select>
+            <input id="year" type="button" value="Select Year" />
+        </div>
+
         <div id="mushroomFields" class="grid grid-cols-2 gap-2"></div>
         <!-- <div id="json" class="w-full h-full"></div> -->
     </div>
