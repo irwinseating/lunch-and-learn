@@ -20,6 +20,11 @@ Utility classes for basic functionality.
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
 }
 
+.hide {
+    display:none
+
+}
+
 .card:hover {
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     font-weight: bold;
@@ -78,3 +83,9 @@ Utility classes for basic functionality.
 .flex-col {
     flex-direction: column;
 }
+
+.margin-x-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
