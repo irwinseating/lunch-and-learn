@@ -15,7 +15,8 @@ Variable Lifecycles
 
 
 
-
+Future projectS:
+* Take an existing project and convert it to another language. An example would be take at js/html solution and create the same thing in C#/blazor.
 
 
 
@@ -27,3 +28,4 @@ Variable Lifecycles
 * naming conventions and why it's important
 * variable scope 
 * Design Patterns
+
